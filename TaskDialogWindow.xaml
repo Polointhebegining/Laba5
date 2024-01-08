@@ -1,0 +1,11 @@
+<Window x:Class="YourNamespace.TaskDialogWindow"
+        ...>
+    <Grid>
+        <TextBox x:Name="TitleTextBox" ... />
+        <TextBox x:Name="DescriptionTextBox" ... />
+        <!-- Other input fields -->
+        <Button Content="OK" Click="OkButton_Click" ... />
+        <Button Content="Cancel" Click="CancelButton_Click" ... />
+    </Grid>
+</Window>
+

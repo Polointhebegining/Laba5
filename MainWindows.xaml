@@ -1,0 +1,22 @@
+<Window x:Class="YourNamespace.MainWindow"
+        ...>
+    <Grid>
+        <ListView ItemsSource="{Binding TodoList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Define the visual representation of a task here 
+-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit Task" Command="{Binding 
+EditTaskCommand}" />
+                    <MenuItem Header="New Task" Command="{Binding 
+NewTaskCommand}" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+    </Grid>
+</Window>
+
