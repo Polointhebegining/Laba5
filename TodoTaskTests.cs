@@ -26,7 +26,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListToCompare = todoList.Tasks().ToList();
+            var ListToCompare = todoList.Tasks;
 
             Assert.Equal(2, ListToCompare.Count);
             Assert.Equal("Task 1", ListToCompare[0].Title);
@@ -51,12 +51,12 @@ false};
             todoList.Add(task2);
             todoList.Add(task3);
 
-            var Before = todoList.Tasks().ToList();
+            var Before = todoList.Tasks;
             Assert.Equal(3, Before.Count);
 
             todoList.Remove(task1);
 
-            var After = todoList.Tasks().ToList();
+            var After = todoList.Tasks;
             Assert.Equal(2, After.Count);
             Assert.Equal("Task 2", After[0].Title);
         }
@@ -75,7 +75,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListTasks = todoList.CompletedTasks().ToList();
+            var ListTasks = todoList.CompletedTasks;
             Assert.Equal(0, ListTasks.Count);
         }
 
@@ -92,7 +92,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListTasks = todoList.UncompletedTasks().ToList();
+            var ListTasks = todoList.UncompletedTasks;
             Assert.Equal(2, ListTasks.Count);
         }
 
@@ -114,7 +114,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToJSON();
 
-            var Tasks = todoList.Tasks().ToList();
+            var Tasks = todoList.Tasks;
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
@@ -139,7 +139,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToXML();
 
-            var Tasks = todoList.Tasks().ToList();
+            var Tasks = todoList.Tasks;
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
@@ -164,7 +164,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToSQLite();
 
-            var Tasks = todoList.Tasks().ToList();
+            var Tasks = todoList.Tasks;
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
