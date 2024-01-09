@@ -1,8 +1,13 @@
+using Lab2;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
 public class YourViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
+    TodoTask selectedTask;
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -12,7 +17,6 @@ public class YourViewModel : INotifyPropertyChanged
     public ICommand EditTaskCommand { get; private set; }
     public ICommand NewTaskCommand { get; private set; }
 
-    private TodoTask selectedTask;
 
     public TodoTask SelectedTask
     {
