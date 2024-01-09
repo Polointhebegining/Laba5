@@ -46,8 +46,12 @@ namespace Lab2
 
         public override string ToString()
         {
-            return $"Title: {Title}, Description: {Description}, Deadline 
-{Deadline}, IsComplete: {IsCompleted}, Tags: {string.Join(" ,", tags)}";
+            return $"Title: {Title}, Description: {Description}, Deadline {Deadline}, IsComplete: {IsCompleted}, Tags: {string.Join(" ,", tags)}";
+        }
+
+        internal object Clone()
+        {
+            throw new NotImplementedException();
         }
     }
 }
