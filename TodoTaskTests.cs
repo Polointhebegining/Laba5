@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Xml.Serialization;
 using Microsoft.Data.Sqlite;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace HelloWorldTests
 {
@@ -26,7 +27,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListToCompare = todoList.Tasks;
+            var ListToCompare = todoList.Tasks.ToList();
 
             Assert.Equal(2, ListToCompare.Count);
             Assert.Equal("Task 1", ListToCompare[0].Title);
@@ -51,12 +52,12 @@ false};
             todoList.Add(task2);
             todoList.Add(task3);
 
-            var Before = todoList.Tasks;
+            var Before = todoList.Tasks.ToList();
             Assert.Equal(3, Before.Count);
 
             todoList.Remove(task1);
 
-            var After = todoList.Tasks;
+            var After = todoList.Tasks.ToList();
             Assert.Equal(2, After.Count);
             Assert.Equal("Task 2", After[0].Title);
         }
@@ -75,7 +76,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListTasks = todoList.CompletedTasks;
+            var ListTasks = todoList.CompletedTasks.ToList();
             Assert.Equal(0, ListTasks.Count);
         }
 
@@ -92,7 +93,7 @@ false};
             todoList.Add(task1);
             todoList.Add(task2);
 
-            var ListTasks = todoList.UncompletedTasks;
+            var ListTasks = todoList.UncompletedTasks.ToList();
             Assert.Equal(2, ListTasks.Count);
         }
 
@@ -114,7 +115,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToJSON();
 
-            var Tasks = todoList.Tasks;
+            var Tasks = todoList.Tasks.ToList();
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
@@ -139,7 +140,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToXML();
 
-            var Tasks = todoList.Tasks;
+            var Tasks = todoList.Tasks.ToList();
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
@@ -164,7 +165,7 @@ false};
             var TestList = new TodoList();
             TestList.LoadToSQLite();
 
-            var Tasks = todoList.Tasks;
+            var Tasks = todoList.Tasks.ToList();
 
             Assert.Equal(2, Tasks.Count);
             Assert.Equal("Task 1", Tasks[0].Title);
