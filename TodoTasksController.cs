@@ -18,11 +18,11 @@ public class TodoTasksController : ControllerBase
     [HttpGet]
     public IEnumerable<TodoTask> Get()
     {
-        return _todoList.GetAllTasks();
+        return _todoList.Tasks;
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<TodoTask> Get(int id)
+    /*[HttpGet("{id}")]
+    /*public ActionResult<TodoTask> Get(int id)
     {
         var task = _todoList.GetTaskById(id);
         if (task == null)
@@ -31,15 +31,15 @@ public class TodoTasksController : ControllerBase
         }
         return task;
     }
-
+    */
     [HttpPost]
     public ActionResult<TodoTask> Post([FromBody] TodoTask task)
     {
-        _todoList.AddTask(task);
+        _todoList.Add(task);
         return CreatedAtAction(nameof(Get), new { id = task.Id }, task);
     }
 
-    [HttpPut("{id}")]
+    /*[HttpPut("{id}")]
     public IActionResult Put(int id, [FromBody] TodoTask task)
     {
         if (!_todoList.UpdateTask(id, task))
@@ -48,11 +48,11 @@ public class TodoTasksController : ControllerBase
         }
         return NoContent();
     }
-
+    */
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        if (!_todoList.DeleteTask(id))
+        if (!_todoList.Delete(id))
         {
             return NotFound();
         }
