@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Xml.Serialization;
 using Microsoft.Data.Sqlite;
 using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Lab2
 {
@@ -145,11 +146,11 @@ tasks.AddRange(JsonSerializer.Deserialize<List<TodoTask>>(json));
             if (File.Exists(JsonFilePath))
             {
                 var serial = new XmlSerializer(typeof(List<TodoTask>));
-                using (var stream = new StreamWriter(XmlFilePath))
+                using (var stream = new StreamReader(XmlFilePath))
                 {
                     tasks.Clear();
-                    
-tasks.AddRange((List<TodoTask>)serial.Deserialize(stream));
+
+                    tasks.AddRange((List<TodoTask>)serial.Deserialize(stream));
                 }
             }
         }
